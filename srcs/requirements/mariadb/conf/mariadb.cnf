@@ -1,0 +1,17 @@
+# config based on:
+# - https://mariadb.com/kb/en/configuring-mariadb-with-option-files/#example-minimal-option-file
+# - https://mariadb.com/kb/en/configuring-mariadb-for-remote-client-access/
+# - https://mariadb.com/kb/en/server-system-variables
+
+# The MariaDB server
+[mysqld]
+# Directory where you want to put your data
+data=/usr/local/mysql/var
+
+
+# This is the prefix name to be used for all log, error and replication files
+log-basename=mysqld
+
+# Enable logging by default to help find problems
+general-log
+log-slow-queries
