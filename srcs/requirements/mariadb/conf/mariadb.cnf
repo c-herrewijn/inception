@@ -5,13 +5,13 @@
 
 # The MariaDB server
 [mysqld]
-# Directory where you want to put your data
+
+# Data directory
 data=/usr/local/mysql/var
 
-
 # This is the prefix name to be used for all log, error and replication files
-log-basename=mysqld
+log-basename=mariadb
 
 # Enable logging by default to help find problems
+log_error
 general-log
-log-slow-queries
