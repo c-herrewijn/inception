@@ -2,9 +2,9 @@ FROM debian:bullseye
 
 # RUN commands runs while building the image, not while running the container!
 # install the webserver
-RUN apt update
-RUN apt -y install nginx
-RUN apt -y install openssl
+RUN apt-get update
+RUN apt-get -y install nginx
+RUN apt-get -y install openssl
 
 # copy files into container
 COPY conf/ /conf
