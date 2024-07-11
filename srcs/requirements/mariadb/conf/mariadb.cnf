@@ -7,7 +7,7 @@
 [mysqld]
 
 # Data directory
-data=/usr/local/mysql/var
+data=/usr/local/mysql/var  # not really needed ??
 
 # This is the prefix name to be used for all log, error and replication files
 log-basename=mariadb
