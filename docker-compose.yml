@@ -13,14 +13,23 @@ services:
     build: ./nginx
     container_name: nginx-container
     ports: [443:443]
-    depends_on: [wordpress]
+    depends_on:
+      wordpress:
+        condition: service_healthy
+        required: true
+    networks: [inception]
+    restart: always
 
   wordpress:
     build: ./wordpress
     container_name: wordpress-container
     # ports: [9000:9000]
-    depends_on: [mariadb]
+    depends_on:
+      mariadb:
+        condition: service_healthy
+        required: true
     networks: [inception]
+    restart: always
 
   mariadb:
     build: ./mariadb
@@ -28,3 +37,4 @@ services:
     container_name: mariadb-container
     # ports: [3306:3306]
     networks: [inception]
+    restart: always

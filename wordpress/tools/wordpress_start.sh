@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "running wordpress startup script!"
-sleep 4
 
 if [ ! -f /var/www/html/inception/wp-config.php ]; then
     echo "initializing wordpress..."

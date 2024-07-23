@@ -18,4 +18,6 @@ RUN mkdir -p /run/php
 # open default port for php-fpm (FastCGI Process Manager)
 EXPOSE 9000
 
+HEALTHCHECK --interval=2s CMD pgrep -f 'php-fpm' || exit 1
+
 ENTRYPOINT ["/tools/wordpress_start.sh"]

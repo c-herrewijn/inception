@@ -21,7 +21,7 @@ RUN openssl req -newkey rsa:4096 -x509 -nodes -sha256 -days 365 \
     -subj "/CN=cherrewi.42.fr/"
 
 # debug
-RUN echo "<h1>hello world</h1>" > /var/www/html/index.html
+# RUN echo "<h1>hello world</h1>" > /var/www/html/index.html
 
 # standard port for https
 EXPOSE 443
