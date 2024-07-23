@@ -1,24 +1,31 @@
-name: inception
+# name: inception
 
-networks:
-  inception:
-    driver: bridge
+# networks:
+#   inception:
+#     driver: bridge
 
 # volumes:
 #   wp-database:
 #   wp-website:
 
 services:
-  wordpress:
-    build: ./wordpress
-    container_name: wordpress-container
-    # ports: [9000:9000]
-    depends_on: [mariadb]
-    networks: [inception]
+  nginx:
+    build: ./nginx
+    container_name: nginx-container
+    ports:
+      - "443:443"
+      - "80:80"
+    # depends_on: [wordpress]
+    # networks: [inception]
 
-  mariadb:
-    build: ./mariadb
-    # volumes: [wp-database: /usr/local/mysql/var]
-    container_name: mariadb-container
-    # ports: [3306:3306]
-    networks: [inception]
+  # wordpress:
+  #   build: ./wordpress
+  #   container_name: wordpress-container
+  #   depends_on: [mariadb]
+  #   # networks: [inception]
+
+  # mariadb:
+  #   build: ./mariadb
+  #   # volumes: [wp-database: /usr/local/mysql/var]
+  #   container_name: mariadb-container
+  #   # networks: [inception]

@@ -11,7 +11,9 @@ COPY conf/ /conf
 COPY conf/ /tools
 
 # copy config file
-COPY conf/nginx.conf /etc/nginx/conf.d/nginx.conf
+# COPY conf/nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY conf/nginx.conf /etc/nginx/sites-available/default
+
 
 # create TLS certificates
 RUN	mkdir -p /etc/nginx/ssl
@@ -21,7 +23,7 @@ RUN openssl req -newkey rsa:4096 -x509 -nodes -sha256 -days 365 \
     -subj "/CN=cherrewi.42.fr/"
 
 # debug
-RUN echo "<h1>hello world</h1>" > /var/www/html/index.html
+RUN echo "<h1>hello world 2</h1>" > /var/www/html/index.html
 
 # standard port for https
 EXPOSE 443
