@@ -20,6 +20,10 @@ RUN openssl req -newkey rsa:4096 -x509 -nodes -sha256 -days 365 \
     -keyout /etc/nginx/ssl/inception.key \
     -subj "/CN=cherrewi.42.fr/"
 
+
+# folder where wordpress can be mounted
+RUN	mkdir -p /var/www/html/inception
+
 # debug
 # RUN echo "<h1>hello world</h1>" > /var/www/html/index.html
 
