@@ -11,7 +11,7 @@ COPY conf/ /conf
 COPY conf/ /tools
 
 # copy config file
-COPY conf/nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY conf/nginx.conf /etc/nginx/sites-available/default
 
 # create TLS certificates
 RUN	mkdir -p /etc/nginx/ssl

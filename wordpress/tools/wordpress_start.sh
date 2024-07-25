@@ -15,8 +15,10 @@ if [ ! -f /var/www/html/inception/wp-config.php ]; then
     wp core download --allow-root
     # wp config create --allow-root --dbname=inception --dbuser=user1 --dbpass=password1 --dbhost=localhost:3306
     wp config create --allow-root --dbname=inception --dbuser=user1 --dbpass=password1 --dbhost=mariadb
-    wp core install --allow-root --url=cherrewi.42.fr --title="Inception_WP" --admin_user=wp_admin --admin_password=pass1 --admin_email=cherrewi@student.codam.nl
+    wp core install --allow-root --url=cherrewi.42.fr --title="Inception_WP" --admin_user=wp_admin --admin_password=pass1 --admin_email=cherrewi@student.codam.nl --skip-email
     wp user create wp_user user1@student.codam.nl --allow-root --role=author --user_pass=pass2
+
+    chown -R www-data:www-data /var/www/html
 fi
 
 exec php-fpm7.4 -F
