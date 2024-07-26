@@ -25,6 +25,9 @@ clean: down
 	docker volume rm -f inception_wp-database
 	sudo rm -rf ~/data/wp-files/*
 	sudo rm -rf ~/data/wp-database/*
+	docker rmi inception-mariadb || true
+	docker rmi inception-nginx || true
+	docker rmi inception-wordpress || true
 
 fclean: clean
 	docker system prune -af

@@ -30,6 +30,7 @@ services:
         condition: service_healthy
         required: true
     volumes: [wp-files:/var/www/html/inception]
+    env_file: .env
     networks: [inception]
     restart: always
 
@@ -41,6 +42,7 @@ services:
         condition: service_healthy
         required: true
     volumes: [wp-files:/var/www/html/inception]
+    env_file: .env
     networks: [inception]
     restart: always
 
@@ -48,5 +50,6 @@ services:
     build: ./mariadb
     container_name: mariadb-container
     volumes: [wp-database:/var/lib/mysql]
+    env_file: .env
     networks: [inception]
     restart: always

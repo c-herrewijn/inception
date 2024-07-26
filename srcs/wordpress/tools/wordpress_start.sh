@@ -12,11 +12,10 @@ then
     mkdir -p /var/www/html/inception
     cd /var/www/html/inception
     wp core download --allow-root
-    wp config create --allow-root --dbname=inception --dbuser=user1 --dbpass=password1 --dbhost=mariadb
-    wp core install --allow-root --url=cherrewi.42.fr --title="Inception_WP" --admin_user=wp_admin --admin_password=pass1 --admin_email=cherrewi@student.codam.nl --skip-email
-    wp user create wp_user user1@student.codam.nl --allow-root --role=author --user_pass=pass2
+    wp config create --allow-root --dbname=inception --dbuser=$DB_USER --dbpass=$DB_PASSWORD --dbhost=mariadb
+    wp core install --allow-root --url=cherrewi.42.fr --title="Inception_WP" --admin_user=$WP_ADMIN_NAME --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL --skip-email
+    wp user create $WP_USER_NAME $WP_USER_EMAIL --allow-root --role=author --user_pass=$WP_USER_PASSWORD
     chown -R www-data:www-data /var/www/html
-    # chmod -R 666 /var/www/html
 else
     echo "wordpress already installed"
 fi
