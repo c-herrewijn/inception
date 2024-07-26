@@ -21,4 +21,4 @@ else
 fi
 
 echo "starting wordpress FastCGI Process Mananger (FPM)"
-exec php-fpm7.4 -F
+exec php-fpm8.2 -F
