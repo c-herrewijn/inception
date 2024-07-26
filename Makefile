@@ -1,7 +1,8 @@
 all:
 	mkdir -p ~/data/wp-database
 	mkdir -p ~/data/wp-files
-	docker compose -f ./srcs/docker-compose.yml up
+	docker compose -f ./srcs/docker-compose.yml up --no-start
+	docker compose -f ./srcs/docker-compose.yml start
 
 start:
 	docker compose -f ./srcs/docker-compose.yml start
@@ -11,14 +12,13 @@ stop:
 
 up: all
 
-down:
+down: stop
 	docker compose -f ./srcs/docker-compose.yml down
 
 build:
 	mkdir -p ~/data/wp-database
 	mkdir -p ~/data/wp-files
 	docker compose -f ./srcs/docker-compose.yml build
-	docker compose -f ./srcs/docker-compose.yml down
 
 clean: down
 	docker volume rm -f inception_wp-files
