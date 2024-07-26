@@ -1,20 +1,26 @@
 all:
 	mkdir -p ~/data/wp-database
 	mkdir -p ~/data/wp-files
-	docker compose up
+	docker compose -f ./srcs/docker-compose.yml up
 
-build:
-	mkdir -p ~/data/wp-database
-	mkdir -p ~/data/wp-files
-	docker compose up --build
+start:
+	docker compose -f ./srcs/docker-compose.yml start
+
+stop:
+	docker compose -f ./srcs/docker-compose.yml stop
 
 up: all
 
 down:
-	docker compose down
+	docker compose -f ./srcs/docker-compose.yml down
 
-clean:
-	docker compose down
+build:
+	mkdir -p ~/data/wp-database
+	mkdir -p ~/data/wp-files
+	docker compose -f ./srcs/docker-compose.yml build
+	docker compose -f ./srcs/docker-compose.yml down
+
+clean: down
 	docker volume rm -f inception_wp-files
 	docker volume rm -f inception_wp-database
 	sudo rm -rf ~/data/wp-files/*
@@ -26,4 +32,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all build up down clean fclean rm
+.PHONY: all build up down start stop clean fclean rm
