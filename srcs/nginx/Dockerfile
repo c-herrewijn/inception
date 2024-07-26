@@ -6,11 +6,7 @@ RUN apt-get update
 RUN apt-get -y install nginx
 RUN apt-get -y install openssl
 
-# copy files into container
-COPY conf/ /conf
-COPY conf/ /tools
-
-# copy config file
+# copy nginx config file into container
 COPY conf/nginx.conf /etc/nginx/sites-available/default
 
 # create TLS certificates
@@ -20,12 +16,8 @@ RUN openssl req -newkey rsa:4096 -x509 -nodes -sha256 -days 365 \
     -keyout /etc/nginx/ssl/inception.key \
     -subj "/CN=cherrewi.42.fr/"
 
-
 # folder where wordpress can be mounted
 RUN	mkdir -p /var/www/html/inception
-
-# debug
-# RUN echo "<h1>hello world</h1>" > /var/www/html/index.html
 
 # standard port for https
 EXPOSE 443

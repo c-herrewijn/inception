@@ -3,7 +3,7 @@ This project creates a webserver that serves a clean wordpress installation
 
 ## Installation for localhost / VM
 - clone this repository in the Virtual Machine (VM)
-- create a `.env` file in the root of the source code, copy the content of .env-example to this file and set your passwords
+- create a `.env` file in the `srcs` of the source code, copy the content of `.env-example` to this file and set the credentials and passwords
 - in the VM, the `etc/hosts` file should have the following line:
     - `127.0.0.1 localhost cherrewi.42.fr`
 
@@ -21,6 +21,6 @@ This project creates a webserver that serves a clean wordpress installation
 - `make down`
 - you can re-create later with `make` or `make up`
 
-## deleting all website data!!
+## deleting all website data (requires sudo rights)!!
 - `make clean`
 - `make fclean` (also removes all images)
