@@ -16,7 +16,7 @@ then
     wp core install --allow-root --url=cherrewi.42.fr --title="Inception_WP" --admin_user=wp_admin --admin_password=pass1 --admin_email=cherrewi@student.codam.nl --skip-email
     wp user create wp_user user1@student.codam.nl --allow-root --role=author --user_pass=pass2
     chown -R www-data:www-data /var/www/html
-    chmod -R 666 www-data:www-data /var/www/html
+    # chmod -R 666 /var/www/html
 else
     echo "wordpress already installed"
 fi
