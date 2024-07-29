@@ -11,7 +11,6 @@ RUN chmod +x /tools/mariadb_start.sh
 # open default port for MariaDB service
 EXPOSE 3306
 
-# HEALTHCHECK CMD mysqladmin ping -h localhost -u user1 -p$MYSQL_ROOT_PASSWORD || exit 1
-HEALTHCHECK --interval=2s CMD mysqladmin ping -h localhost -u user1 -ppassword1 || exit 1
+HEALTHCHECK --interval=2s CMD mysqladmin ping -h localhost -u $DB_USER -p$DB_PASSWORD || exit 1
 
 ENTRYPOINT ["/tools/mariadb_start.sh"]
